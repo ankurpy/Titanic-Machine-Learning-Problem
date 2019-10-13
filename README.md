@@ -68,4 +68,4 @@ def bar_chart(feature):
     df = pd.DataFrame([survived,dead])
     df.index = ['Survived','Dead']
     df.plot(kind='bar', figsize=(10,5))
-    ```
+```
