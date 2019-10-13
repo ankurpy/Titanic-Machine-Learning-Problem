@@ -14,5 +14,5 @@ ts = pd.read_csv("test.csv")
 ac = pd.read_csv("gender_submission.csv")
 ```
 ```python
-display(tr.head())
+tr.info()
 ```
