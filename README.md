@@ -59,3 +59,13 @@ dtypes: float64(2), int64(4), object(5)
 memory usage: 36.0+ KB
 ```
 In test data, values are missing in Age, Cabin and Fare.
+
+## Data visualization
+```python
+def bar_chart(feature):
+    survived = tr[tr['Survived']==1][feature].value_counts()
+    dead = tr[tr['Survived']==0][feature].value_counts()
+    df = pd.DataFrame([survived,dead])
+    df.index = ['Survived','Dead']
+    df.plot(kind='bar', figsize=(10,5))
+    ```
