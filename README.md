@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 sns.set()
 ```
+## Loading datasets
 ```python
 tr = pd.read_csv("train.csv")
 ts = pd.read_csv("test.csv")
