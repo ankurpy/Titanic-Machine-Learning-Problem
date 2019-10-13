@@ -69,3 +69,4 @@ def bar_chart(feature):
     df.index = ['Survived','Dead']
     df.plot(kind='bar', figsize=(10,5))
 ```
+![png](sdjvnswjvnjn.png)
