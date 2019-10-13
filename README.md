@@ -36,7 +36,7 @@ Embarked       889 non-null object
 dtypes: float64(2), int64(5), object(5)
 memory usage: 83.6+ KB
 ``` 
-In test dataset, values are missing in Age, Cabin and Embarked.
+We can see that values are missing in Age, Cabin and Embarked.
 ```python
 ts.info()
 ```
@@ -58,4 +58,4 @@ Embarked       418 non-null object
 dtypes: float64(2), int64(4), object(5)
 memory usage: 36.0+ KB
 ```
-We can see that values are missing in Age, Cabin and Fare.
+In test data, values are missing in Age, Cabin and Fare.
