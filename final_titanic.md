@@ -279,7 +279,7 @@ print(ts.info())
     memory usage: 36.0+ KB
     None
     
-## we can see that features values are missing in datasets.
+### we can see that features values are missing in datasets.
 
 ```python
 import matplotlib.pyplot as plt
@@ -343,7 +343,7 @@ print("Dead:\n",tr[tr['Survived']==0]['Sex'].value_counts())
      male      468
     female     81
     Name: Sex, dtype: int64
-### we can see that Women more likely survivied than Men.
+#### we can see that Women more likely survivied than Men.
 
 
 ![png](output_7_1.png)
@@ -366,8 +366,8 @@ print("Dead:\n",tr[tr['Survived']==0]['Pclass'].value_counts())
     2     97
     1     80
     Name: Pclass, dtype: int64
-### 1st class more likely survivied than other classes.
-### 3rd class more likely dead than other classes    
+#### 1st class more likely survivied than other classes.
+#### 3rd class more likely dead than other classes    
 
 
 ![png](output_8_1.png)
@@ -396,7 +396,8 @@ print("Dead:\n",tr[tr['Survived']==0]['SibSp'].value_counts())
     8      7
     5      5
     Name: SibSp, dtype: int64
-    
+#### person aboarded with more than 2 siblings or spouse more likely survived.
+#### person aboarded without siblings or spouse more likely dead    
 
 
 ![png](output_9_1.png)
@@ -419,7 +420,9 @@ print("Dead:\n",tr[tr['Survived']==0]['Embarked'].value_counts())
     C     75
     Q     47
     Name: Embarked, dtype: int64
-    
+#### person aboarded from C slightly more likely survived.
+#### person aboarded from Q more likely dead.
+#### person aboarded from S more likely dead.  
 
 
 ![png](output_10_1.png)
@@ -445,9 +448,10 @@ print(a31.value_counts())
     teenager          102
     child              62
     Name: Age, dtype: int64
-    
+#### categorized the age column 
 
 
+#### Dropped unwanted features
 ```python
 cols = ['PassengerId','Name','Ticket','Cabin']
 tr = tr.drop(cols, axis=1)
@@ -471,7 +475,7 @@ display(ts.shape)
     (418, 7)
 
 
-
+#### male=0, female=1
 ```python
 a=tr['Sex']
 s=pd.Series(a)
@@ -678,6 +682,8 @@ display(ts.head())
 
 
 
+#### In embarked
+#### Q=0, S=1, C=2
 ```python
 b1=tr['Embarked']
 t1=pd.Series(b1)
@@ -892,9 +898,8 @@ display(ts.head())
 
 
 
+### FILLED THE MISSING DATA VALUES USING INTERPOLATE FUNCTION
 ```python
-## FILLED THE MISSING DATA VALUES USING INTERPOLATE FUNCTION
-
 tr['Age'] = tr['Age'].interpolate()
 ts['Age'] = ts['Age'].interpolate()
 ts['Fare'] = ts['Fare'].interpolate()
@@ -941,11 +946,10 @@ display(ts.info())
     None
 
 
+### SPLITTING INPUT VALUES AND OUTPUT
 
 ```python
-## SPLITTING INPUT VALUES AND OUTPUT 
-
-x = tr.values 
+ x = tr.values 
 y = tr['Survived'].values
 x = np.delete(x, 0, axis=1)
 
@@ -973,6 +977,7 @@ print(x1)
     
 
 
+#### Normalized datasets
 ```python
 from sklearn import preprocessing
 x = preprocessing.normalize(x)
@@ -991,9 +996,8 @@ print(ac.shape)
     
 
 
+#### MODEL TRAINING AND PREDICTING
 ```python
-## MODEL TRAINING AND PREDICTING
-
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn import metrics
 from sklearn.metrics import classification_report, confusion_matrix
