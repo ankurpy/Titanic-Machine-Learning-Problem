@@ -1,4 +1,4 @@
-# Titanic problem analysis
+# Titanic problem survival analysis
 
 ```python
 import numpy as np
@@ -279,7 +279,7 @@ print(ts.info())
     memory usage: 36.0+ KB
     None
     
-
+## we can see that features values are missing in datasets.
 
 ```python
 import matplotlib.pyplot as plt
@@ -287,7 +287,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 sns.set()
 ```
-
+# Data visualization
 
 ```python
 sur=tr[tr['Survived']==1].size
@@ -343,7 +343,7 @@ print("Dead:\n",tr[tr['Survived']==0]['Sex'].value_counts())
      male      468
     female     81
     Name: Sex, dtype: int64
-    
+### we can see that Women more likely survivied than Men.
 
 
 ![png](output_7_1.png)
@@ -366,7 +366,8 @@ print("Dead:\n",tr[tr['Survived']==0]['Pclass'].value_counts())
     2     97
     1     80
     Name: Pclass, dtype: int64
-    
+### 1st class more likely survivied than other classes.
+### 3rd class more likely dead than other classes    
 
 
 ![png](output_8_1.png)
@@ -892,7 +893,7 @@ display(ts.head())
 
 
 ```python
-#FILLED THE MISSING DATA VALUES USING INTERPOLATE FUNCTION
+## FILLED THE MISSING DATA VALUES USING INTERPOLATE FUNCTION
 
 tr['Age'] = tr['Age'].interpolate()
 ts['Age'] = ts['Age'].interpolate()
@@ -942,7 +943,7 @@ display(ts.info())
 
 
 ```python
-#SPLITTING INPUT VALUES AND OUTPUT 
+## SPLITTING INPUT VALUES AND OUTPUT 
 
 x = tr.values 
 y = tr['Survived'].values
@@ -991,7 +992,7 @@ print(ac.shape)
 
 
 ```python
-#MODEL TRAINING AND PREDICTING
+## MODEL TRAINING AND PREDICTING
 
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn import metrics
