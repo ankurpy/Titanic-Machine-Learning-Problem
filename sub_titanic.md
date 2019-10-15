@@ -1,5 +1,5 @@
 
-
+# Titanic survival analysis
 ```python
 import numpy as np
 import pandas as pd
@@ -149,7 +149,7 @@ display(data.info())
     None
 
 
-
+## Data visualization
 ```python
 import matplotlib.pyplot as plt
 %matplotlib inline
@@ -166,6 +166,7 @@ ps.plot(kind='pie', subplots=True,labels=['survived','dead'], startangle=180, ex
 plt.legend()
 plt.show()
 ```
+#### we can see that approx 40% got survived.
 
 
 ![png](output_3_0.png)
@@ -185,7 +186,7 @@ for j, i in enumerate(a31.values):
         a31[j]='senior citizen'
 print(a31.value_counts())
 ```
-
+##### there were more no of adults followed by senior citizens onboard.
     adult             476
     senior citizen    251
     teenager          102
@@ -209,7 +210,7 @@ bar_chart('Sex')
 print("Survived :\n",data[data['Survived']==1]['Sex'].value_counts())
 print("Dead:\n",data[data['Survived']==0]['Sex'].value_counts())
 ```
-
+##### we can see that females are more likely survived.
     Survived :
      female    233
     male      109
@@ -230,7 +231,7 @@ bar_chart('Pclass')
 print("Survived :\n",data[data['Survived']==1]['Pclass'].value_counts())
 print("Dead:\n",data[data['Survived']==0]['Pclass'].value_counts())
 ```
-
+##### passengers of class 3 were less likely survived.
     Survived :
      1    136
     3    119
@@ -338,6 +339,7 @@ plt.xlabel('Fare')
 plt.ylabel('Number of passengers')
 plt.legend();
 ```
+##### Here, we can see that passengers paid high fare were more likely survived.
 
 
 ![png](output_11_0.png)
@@ -357,7 +359,7 @@ ts = pd.read_csv("test.csv")
 #print(ts.isnull().sum())
 ```
 
-
+##### Droppped unwanted features.
 ```python
 cols = ['PassengerId','Name','Ticket','Cabin']
 tr = tr.drop(cols, axis=1)
@@ -388,7 +390,7 @@ tr = pd.concat((tr,titanic_dummies),axis=1)
 tr = tr.drop(['Pclass','Sex','Embarked'],axis=1)
 display(tr.head(5))
 ```
-
+##### Used get_dummies to classify pclass, sex, and embarked features.
 
 <div>
 <style scoped>
@@ -647,7 +649,7 @@ tr['Age'] = tr['Age'].interpolate()
 ts['Age'] = ts['Age'].interpolate()
 ts['Fare'] = ts['Fare'].interpolate()
 ```
-
+##### used interpolate function to fill the missing values in age.
 
 ```python
 #SPLITTING INPUT VALUES AND OUTPUT 
@@ -674,7 +676,7 @@ print(ts.shape)
     (418, 12)
     
 
-
+## Modelling
 ```python
 from sklearn import preprocessing
 x = preprocessing.normalize(x)
